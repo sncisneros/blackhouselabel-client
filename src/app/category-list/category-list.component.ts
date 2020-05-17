@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { categories } from '../categories';
+import { Category } from '../models/category';
+import { Item } from "../models/item";
 
 @Component({
   selector: 'app-category-list',
@@ -6,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
+  
+  @Input() category: Category;
+
 
   constructor() { }
+  Category;
 
   ngOnInit(): void {
   }

@@ -1,8 +1,9 @@
-<div *ngFor="let category of categories">
+<div *ngFor="let category of category">
 
-    <a [title]="category.categoryName ">
+    <a [title]="category.categoryName " [routerLink]="['/category', category.categoryName]">
     {{category.categoryName}}
     </a>
     
-
-    </div>
+</div>
+    
+    
