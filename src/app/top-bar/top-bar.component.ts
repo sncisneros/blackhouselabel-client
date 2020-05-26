@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
+  @Output() navToggled = new EventEmitter();
+  navOpen = false;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events
+    .pipe(
+      filter(event => event instanceof NavigationStart && this.navOpen)
+    )
+    .subscribe(event => this.barNav());
+
   }
+
+  barNav(){
+      this.navOpen = !this.navOpen;
+      this.navToggled.emit(this.navOpen);
+    }
+  
 
 }

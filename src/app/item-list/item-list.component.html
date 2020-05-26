@@ -1,6 +1,6 @@
-<div *ngFor="let item of items; index as itemId">
+<div *ngFor="let item of items">
 
-    <a [title]="item.itemName + 'details'" [routerLink]="['/category', itemId]">
+    <a [title]="item.productName + ' details'" [routerLink]="[ item._id]" queryParamsHandling = "preserve">
     <h3>{{item.productName}}</h3>
     {{item.productPrice}}
     </a>

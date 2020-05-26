@@ -1,6 +1,19 @@
-<a [routerLink]="['/']"></a>
-<h1>The Blackhouse Label</h1>
 
-
-
-<a class="button fancy-button"><i class="material-icons">shopping_cart</i>My Cart</a>
+<header id="header" class="header">
+    <div class="header-page bg-primary">
+      <a class="toggle-offcanvas bg-primary" (click)="barNav()"><span></span></a>
+      <h1 class="header-page-siteTitle">
+        <a routerLink="/">The Blackhouse Label</a>
+      </h1>
+    </div>
+    <nav id="nav" class="nav" role="navigation">
+      <ul class="nav-list">
+        <li>
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+      </ul>
+    </nav>
+  </header>

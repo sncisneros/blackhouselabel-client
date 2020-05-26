@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { categories } from '../categories';
+import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 import { Category } from '../models/category';
 import { Item } from "../models/item";
 
@@ -11,12 +12,22 @@ import { Item } from "../models/item";
 export class CategoryListComponent implements OnInit {
   
   @Input() category: Category;
+  items: Item[];
+  categories: Category[];
 
 
-  constructor() { }
-  Category;
+  constructor(private dataService: DataService, private router: Router) { }
+  
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllCategories();
+  }
+
+  getAllCategories(){
+    this.dataService.getCategories().subscribe((data: Category[]) => {
+      this.categories = data;
+      console.log(this.categories);
+    })
   }
 
 }
