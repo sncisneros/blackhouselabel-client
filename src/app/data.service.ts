@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { ENV } from './env.config';
 import { Category } from './models/category';
 import { Item } from './models/item';
+import { Cart } from './models/cart';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
+  items: Item[];
+  searchItems: Item[];
 
   constructor(private http: HttpClient) { }
 
@@ -23,12 +27,31 @@ export class DataService {
   }
   getItem( id: string, categoryName: string ){
     return this.http
-      .get(`${ENV.BASE_API}category/${categoryName}/${id}`);
+      .get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}`);
   };
 
-  // addItemToCart(id: string){
-  //   return this.http
-  //   /category/:categoryName/:itemId/addToCart
-  // }
+  addItemToCart(id: string, categoryName: string){
+    return this.http.get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`, {
+      withCredentials: true
+    });
+    
+  }
+
+  
+  getCart(){
+    return this.http
+      .get<Cart>(`${ENV.BASE_API}my-cart`);
+  }
+
+  searchBar(term: string){
+    let params = new HttpParams();
+    params = params.append('search', term);
+
+    return this.http
+      .get<Item[]>(`${ENV.BASE_API}search`, {params: params}).subscribe((data: Item[]) => {
+        this.searchItems = data;
+        console.log(this.searchItems);
+      })
+  }
 
 }

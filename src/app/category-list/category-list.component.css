@@ -1,0 +1,15 @@
+.category {
+    max-width: 400px;
+    float: left;
+  }
+
+  mat-grid-tile {
+      border-color: black;
+    background:white;
+    font-size: medium;
+    font-variant: small-caps;
+  }
+
+  mat-grid-tile a{
+    color: darkgreen;
+  }

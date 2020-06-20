@@ -1,19 +1,33 @@
 
-<header id="header" class="header">
-    <div class="header-page bg-primary">
-      <a class="toggle-offcanvas bg-primary" (click)="barNav()"><span></span></a>
-      <h1 class="header-page-siteTitle">
-        <a routerLink="/">The Blackhouse Label</a>
-      </h1>
-    </div>
-    <nav id="nav" class="nav" role="navigation">
-      <ul class="nav-list">
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <ul class="nav justify-content-center">
+        <li>
+          <a routerLink="/">The Blackhouse Label</a>
+        </li>
         <li>
           <a
             routerLink="/"
             routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            [routerLinkActiveOptions]="{ exact: true }">About </a>
         </li>
+        <li>
+          <a
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">Categories</a>
+        </li>
+        <li>
+          <a
+            routerLink="/my-cart"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">My Cart</a>
+        </li>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" #search type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-light btn-sm" type="submit" (click)="onSubmit(search.value)">Search</button>
+        </form>
       </ul>
     </nav>
-  </header>
+ 
+
+ 

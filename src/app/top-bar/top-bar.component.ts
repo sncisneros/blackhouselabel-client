@@ -1,6 +1,8 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { DataService } from '../data.service';
+import { Item } from '../models/Item';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,24 +11,22 @@ import { filter } from 'rxjs/operators';
 })
 export class TopBarComponent implements OnInit {
 
-  @Output() navToggled = new EventEmitter();
-  navOpen = false;
+  searchItems: Item[];
+  @Output() onSelectedOption = new EventEmitter();
+  term;
 
-  constructor(private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.router.events
-    .pipe(
-      filter(event => event instanceof NavigationStart && this.navOpen)
-    )
-    .subscribe(event => this.barNav());
+    
 
   }
 
-  barNav(){
-      this.navOpen = !this.navOpen;
-      this.navToggled.emit(this.navOpen);
-    }
+  //work on search bar!
+  onSubmit(term: string){
+    this.dataService.searchBar(term);
+  }
+ 
   
 
 }

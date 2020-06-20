@@ -1,9 +1,23 @@
-<div *ngFor="let category of categories">
 
-    <a [title]="category.categoryName " [routerLink]="['/category', category.categoryName]">
-    {{category.categoryName}}
-    </a>
-    
-</div>
+
+    <!-- <mat-card class="category">
+     <mat-card-content>
+       <a [title]="category.categoryName " [routerLink]="['/category', category.categoryName]">
+            {{category.categoryName}}
+            </a>
+        <p>bcfjehfkne jdbfkcjd. </p>>
+    </mat-card-content>
+    </mat-card> -->
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <div *ngFor="let category of categories">
+        <mat-grid-tile> 
+            <a [title]="category.categoryName " [routerLink]="['/category', category.categoryName]">
+            {{category.categoryName}}
+            </a>
+        </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+
     
     

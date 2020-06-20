@@ -1,5 +1,17 @@
-<p>item-details works!</p>
 
-{{item.productName}}
-{{item.productPrice}}
-{{item.description}}
+<mat-card class="item-details">
+    <mat-card-header>
+      
+      <mat-card-title>{{item.productName}}</mat-card-title>
+      <mat-card-subtitle>{{item.productPrice | currency}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <p>
+        {{item.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button type="button" class="btn btn-light" (click)="addToCart(item._id, category)">Add To Cart</button>
+    </mat-card-actions>
+  </mat-card>

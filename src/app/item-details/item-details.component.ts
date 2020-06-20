@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
-import { Category } from '../models/category';
-import { Item } from "../models/item";
+import { Item } from '../models/item';
+import { Cart } from '../models/cart';
 
 @Component({
   selector: 'app-item-details',
@@ -12,6 +12,7 @@ import { Item } from "../models/item";
 export class ItemDetailsComponent implements OnInit {
 
   @Input() item: Item;
+  cart: Cart;
 
   category;
   itemId;
@@ -36,6 +37,13 @@ export class ItemDetailsComponent implements OnInit {
     })
   }
 
-
+  addToCart(id, categoryName){
+    console.log(id);
+    this.dataService.addItemToCart(id, categoryName).subscribe(item => this.cart.items.push(item))
+    console.log(this.cart);
+    window.alert('Item Added!');
+    
+   // localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
 
 }
