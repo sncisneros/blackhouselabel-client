@@ -1,0 +1,5 @@
+<h3>login</h3>
+<input type='text' #username placeholder="Username">
+<input type='password' #password placeholder="Password">
+<p *ngIf='passwordFlag'>Incorrect credentias</p>
+<button (click)='login(username.value, password.value)'> login</button>

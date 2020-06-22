@@ -12,7 +12,7 @@ import { Cart } from '../models/cart';
 export class CartComponent implements OnInit {
 
   @Input() cart: Cart;
-  items: Item[];
+ 
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
 
@@ -21,9 +21,7 @@ export class CartComponent implements OnInit {
   }
 
   getCart(){
-    this.dataService.getCart().subscribe((data) =>{
-       this.cart = data})
-      console.log(this.cart);
+    this.dataService.getCart();
     }
   
 

@@ -3,5 +3,9 @@
 }
 
 a{
-    color:darkgreen;
+    color:black;
+}
+
+a :hover{
+    color: darkolivegreen;
 }

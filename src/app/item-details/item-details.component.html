@@ -10,8 +10,11 @@
       <p>
         {{item.description}}
       </p>
+      <p>
+        {{item.size}}
+      </p>
     </mat-card-content>
     <mat-card-actions>
-        <button type="button" class="btn btn-light" (click)="addToCart(item._id, category)">Add To Cart</button>
+        <button type="button" class="btn btn-light" (click)="addToCart(item.productSKU, category)">Add To Cart</button>
     </mat-card-actions>
   </mat-card>

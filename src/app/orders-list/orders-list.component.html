@@ -1,0 +1,26 @@
+<h3>Open Orders</h3>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th scope="col">Email</th>
+    <th scope="col">Status</th>
+    <th scope="col">Trackin Number</th>
+    <th scope="col">Order Total</th>
+  </tr>
+</thead>
+<tbody>
+  <div *ngFor="let order of orders">
+      <tr>
+    <th scope="row">
+      <a [title]="order.custEmail + ' details'" [routerLink]="[ order._id]" queryParamsHandling = "preserve">
+        {{order.custEmail}}
+        </a>
+    </th>
+    <td>{{order.status}}</td>
+    <td>{{order.trackingNum}}</td>
+    <td>{{order.totalPrice}}</td>
+  </tr>
+  </div>
+  </tbody>
+</table>

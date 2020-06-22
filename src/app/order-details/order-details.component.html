@@ -1,0 +1,24 @@
+<p> Order : {{order.custEmail}}</p>
+<small>{{order.totalPice)</small>
+    {{order.cart.items}}
+
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)">
+
+        <div>
+          <label for="status">
+            {{order.status}}
+          </label>
+          <input id="status" type="text" formControlName="status">
+        </div>
+      
+        <div>
+          <label for="trackingNum">
+            {{order.trackingNum}}
+          </label>
+          <input id="trackingNum" type="text" formControlName="trackingNum">
+        </div>
+      
+        <button class="button" type="submit">Update Order</button>
+
+    </form>
+      

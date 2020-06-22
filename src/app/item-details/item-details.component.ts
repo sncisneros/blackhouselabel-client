@@ -11,8 +11,9 @@ import { Cart } from '../models/cart';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  @Input() item: Item;
-  cart: Cart;
+  @Input() cart: Cart;
+  item: Item;
+  items: Item[];
 
   category;
   itemId;
@@ -39,7 +40,7 @@ export class ItemDetailsComponent implements OnInit {
 
   addToCart(id, categoryName){
     console.log(id);
-    this.dataService.addItemToCart(id, categoryName).subscribe(item => this.cart.items.push(item))
+    this.dataService.addItemToCart(id, categoryName).subscribe((item: Item) => this.cart.items.push(item))
     console.log(this.cart);
     window.alert('Item Added!');
     
