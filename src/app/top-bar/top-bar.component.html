@@ -6,7 +6,7 @@
         </li>
         <li>
           <a
-            routerLink="/"
+            routerLink="/about"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">About </a>
         </li>
@@ -24,8 +24,8 @@
         </li>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" #search type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light btn-sm" type="submit" (click)="onSubmit(search.value)" 
-          routerLink="/search" routerLinkActive="active">Search</button>
+          <button class="btn btn-light btn-sm" type="submit"  (click)="onSubmit(search.value)" 
+          [routerLink]="['./search']" [queryParams]="{search: search.value}" routerLinkActive="active">Search</button>
         </form>
       </ul>
     </nav>

@@ -12,11 +12,13 @@ export class SearchResultsComponent implements OnInit {
 
 @Input() items: Item[];
 
+
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getSearchItems();
   }
+
 
   getSearchItems(){
     this.dataService.onResults().subscribe(data => {

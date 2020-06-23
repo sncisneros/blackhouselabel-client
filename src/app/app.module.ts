@@ -5,7 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { DataService } from './data.service';
 
@@ -15,7 +17,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
-import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
@@ -25,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,14 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     TopBarComponent,
     ItemListComponent,
     ItemDetailsComponent,
-    FooterComponent,
     CartComponent,
     SearchResultsComponent,
     CheckoutComponent,
     InventoryComponent,
     LoginComponent,
     OrdersListComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +51,10 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
+    MatListModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatFormFieldModule,
     RouterModule.forRoot([
       { path: 'home', component: CategoryListComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -61,7 +65,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
       { path: 'checkout', component: CheckoutComponent},
       { path: 'login', component: LoginComponent},
       { path: 'admin/inventory', component: InventoryComponent},
-      { path: 'admin/orders', component: OrdersListComponent}
+      { path: 'admin/orders', component: OrdersListComponent},
+      { path: 'about', component: AboutComponent}
     ]),
     BrowserAnimationsModule
   ],

@@ -27,6 +27,7 @@ export class TopBarComponent implements OnInit {
   //work on search bar!
   onSubmit(term: string){
     this.dataService.searchBar(term);
+    
   }
  
   

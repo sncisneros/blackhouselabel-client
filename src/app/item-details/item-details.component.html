@@ -10,9 +10,17 @@
       <p>
         {{item.description}}
       </p>
-      <p>
-        {{item.size}}
-      </p>
+        <div class="dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sizes:
+          </button>
+          <div class="dropdown-menu" aria-labelledby="size">
+            <button class="dropdown-item" type="button" name="small">Small</button>
+            <button class="dropdown-item" type="button" name="medium">Medium</button>
+            <button class="dropdown-item" type="button" name="large">Large</button>
+            <button class="dropdown-item" type="button" name="large">X-Large</button>
+          </div>
+        </div>
     </mat-card-content>
     <mat-card-actions>
         <button type="button" class="btn btn-light" (click)="addToCart(item.productSKU, category)">Add To Cart</button>

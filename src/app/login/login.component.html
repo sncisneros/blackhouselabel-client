@@ -1,5 +1,19 @@
-<h3>login</h3>
-<input type='text' #username placeholder="Username">
-<input type='password' #password placeholder="Password">
-<p *ngIf='passwordFlag'>Incorrect credentias</p>
-<button (click)='login(username.value, password.value)'> login</button>
+<mat-card id="card" style="text-align: center;">
+	<mat-card-title>
+		Login
+	</mat-card-title>
+
+	<mat-card-content>
+
+		<mat-form-field>
+			<input matInput #username type='text' placeholder="Username">
+		</mat-form-field><br/>
+
+		<mat-form-field>
+            <input matInput #password type='password' placeholder="password">
+            <p *ngIf='passwordFlag'>Incorrect Username and/or Password</p>
+		</mat-form-field><br/>
+		<button (click)='login(username.value, password.value)' mat-raised-button color="primary" style="margin-right:5px;">login</button>
+		<!-- <button mat-raised-button color="primary" style="margin-right:5px;">register</button> -->
+
+	</mat-card-content>
