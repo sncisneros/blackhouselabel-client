@@ -45,10 +45,7 @@ export class DataService {
   
   getCart(){
     return this.http
-      .get<Cart>(`${ENV.BASE_API}my-cart`).subscribe((data: Cart) => {
-        this.cart = data;
-        console.log(this.cart);
-      });
+      .get<Cart>(`${ENV.BASE_API}my-cart`);
   }
 
   onResults(){
@@ -72,8 +69,12 @@ export class DataService {
     return this.http.get<Order[]>(`${ENV.BASE_API}admin/orders`);
   }
 
-  getOrder(id: string){
+  getOrderById(id: string){
     return this.http.get<Order>(`${ENV.BASE_API}admin/orders/${id}`);
+  }
+
+  getAllOrders(){
+    return this.http.get<Order[]>(`${ENV.BASE_API}admin/orders/all`)
   }
 
   updateOrder(id: string, status: string, trackingNum: string){

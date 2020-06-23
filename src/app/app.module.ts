@@ -8,6 +8,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CookieService} from 'ngx-cookie-service';
 
 import { DataService } from './data.service';
 
@@ -66,11 +67,13 @@ import { AboutComponent } from './about/about.component';
       { path: 'login', component: LoginComponent},
       { path: 'admin/inventory', component: InventoryComponent},
       { path: 'admin/orders', component: OrdersListComponent},
+      //{ path: 'admin/orders/all', component: OrdersListComponent},
+      { path: 'admin/orders/:orderId', component: OrderDetailsComponent},
       { path: 'about', component: AboutComponent}
     ]),
     BrowserAnimationsModule
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService, AuthService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

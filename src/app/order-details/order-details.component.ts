@@ -31,7 +31,7 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   viewOrder(id){
-    this.dataService.getOrder(id).subscribe((data : Order) =>{
+    this.dataService.getOrderById(id).subscribe((data : Order) =>{
       this.order = data;
       console.log(this.order);
     })

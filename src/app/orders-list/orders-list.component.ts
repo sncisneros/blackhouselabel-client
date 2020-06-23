@@ -10,6 +10,8 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class OrdersListComponent implements OnInit {
   orders: Order[];
+  allOrders: Order[];
+
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -21,5 +23,11 @@ export class OrdersListComponent implements OnInit {
       this.orders = orders;
       console.log(this.orders)
     });
+  }
+
+  getAllOrders(){
+    this.dataService.getAllOrders().subscribe(orders =>{
+      this.allOrders = orders;
+    })
   }
 }

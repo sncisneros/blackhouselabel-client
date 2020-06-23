@@ -23,7 +23,7 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.category = params.get("categoryName");
-      this.itemId = params.get("itemId");
+      this.itemId = params.get("productSKU");
     })
     console.log(this.category);
      console.log(this.itemId);
@@ -40,11 +40,15 @@ export class ItemDetailsComponent implements OnInit {
 
   addToCart(id, categoryName){
     console.log(id);
-    this.dataService.addItemToCart(id, categoryName).subscribe((item: Item) => this.cart.items.push(item))
-    console.log(this.cart);
-    window.alert('Item Added!');
+    this.dataService.addItemToCart(id, categoryName).subscribe((item: Item)=>{
+      this.items.push(item);
+      console.log(this.item);
+    })
+    
+    window.alert('Your Item Has Been Added!');
+  };
     
    // localStorage.setItem('cart', JSON.stringify(this.cart));
-  }
-
+  
 }
+

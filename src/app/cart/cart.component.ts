@@ -14,14 +14,18 @@ export class CartComponent implements OnInit {
   @Input() cart: Cart;
  
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute,
+     private router: Router) { }
 
   ngOnInit(): void {
     this.getCart();
   }
 
   getCart(){
-    this.dataService.getCart();
+    this.dataService.getCart().subscribe((data: Cart) => {
+      this.cart = data;
+      console.log(this.cart);
+    });
     }
   
 

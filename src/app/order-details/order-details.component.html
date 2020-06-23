@@ -1,19 +1,27 @@
-<p> Order : {{order.custEmail}}</p>
-<small>{{order.totalPice)</small>
+<h3> Order for: <b>{{order.custEmail}}</b></h3>
+<small>${{order.totalPrice}}</small><br>
     {{order.cart.items}}
 
     <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)">
 
         <div>
           <label for="status">
-            {{order.status}}
+           <b>Status: </b> 
           </label>
-          <input id="status" type="text" formControlName="status">
-        </div>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Update
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="open">OPEN</a></li>
+              <li><a href="#" id="inprogress">IN PROGRESS</a></li>
+              <li><a href="#" id="completed">COMPLETED</a></li>
+            </ul>
+          </div>
+      </div>
       
         <div>
           <label for="trackingNum">
-            {{order.trackingNum}}
+            <b>Enter Tracking Number : </b>
           </label>
           <input id="trackingNum" type="text" formControlName="trackingNum">
         </div>
