@@ -60,7 +60,7 @@ import { AboutComponent } from './about/about.component';
       { path: 'home', component: CategoryListComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full'},
       { path: 'category/:categoryName', component: ItemListComponent },
-      { path: 'category/:categoryName/:itemId', component: ItemDetailsComponent},
+      { path: 'category/:categoryName/:productSKU', component: ItemDetailsComponent},
       { path: 'my-cart', component: CartComponent},
       { path: 'search', component: SearchResultsComponent},
       { path: 'checkout', component: CheckoutComponent},

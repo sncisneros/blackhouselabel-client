@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { Item } from '../models/item';
 import { Cart } from '../models/cart';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-item-details',
@@ -11,9 +12,9 @@ import { Cart } from '../models/cart';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  @Input() cart: Cart;
+  cart: Cart;
+  cartItems: Item[] = [];
   item: Item;
-  items: Item[];
 
   category;
   itemId;
@@ -41,8 +42,11 @@ export class ItemDetailsComponent implements OnInit {
   addToCart(id, categoryName){
     console.log(id);
     this.dataService.addItemToCart(id, categoryName).subscribe((item: Item)=>{
-      this.items.push(item);
-      console.log(this.item);
+      this.cartItems.push(item);
+      console.log('item to add: ' + item);
+      console.log('item array:' + this.cartItems)
+      this.cart.items = this.cartItems;      
+      console.log('cart array:' +this.cart.items);
     })
     
     window.alert('Your Item Has Been Added!');
