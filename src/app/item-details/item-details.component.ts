@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { Item } from '../models/item';
 import { Cart } from '../models/cart';
-import { CartComponent } from '../cart/cart.component';
+import { items } from '../items';
+import { categories } from '../categories';
 
 @Component({
   selector: 'app-item-details',
@@ -12,24 +13,34 @@ import { CartComponent } from '../cart/cart.component';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  cart: Cart;
-  cartItems: Item[] = [];
-  item: Item;
+  // cart: Cart;
+  // cartItems: Item[] = [];
+  @Input() item: Item;
 
-  category;
-  itemId;
+   category;
+   itemId;
+
+  cart: Cart;
+  categories;
+  items;
+  
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.category = params.get("categoryName");
-      this.itemId = params.get("productSKU");
-    })
-    console.log(this.category);
-     console.log(this.itemId);
+    // this.route.paramMap.subscribe(params => {
+    //   this.category = params.get("categoryName");
+    //   this.itemId = params.get("productSKU");
+    // })
+    // console.log(this.category);
+    //  console.log(this.itemId);
 
-     this.getItem(this.itemId, this.category);
+     //this.getItem(this.itemId, this.category);
+
+     this.route.paramMap.subscribe(params =>{
+      this.items = items[+params.get('productSKU')]
+      
+     });
   }
 
   getItem(id, category){
@@ -42,11 +53,9 @@ export class ItemDetailsComponent implements OnInit {
   addToCart(id, categoryName){
     console.log(id);
     this.dataService.addItemToCart(id, categoryName).subscribe((item: Item)=>{
-      this.cartItems.push(item);
-      console.log('item to add: ' + item);
-      console.log('item array:' + this.cartItems)
-      this.cart.items = this.cartItems;      
-      console.log('cart array:' +this.cart.items);
+      this.cart.items.push(item);
+      console.log('item to add: ' + item);     
+      console.log('cart array:' + this.cart.items);
     })
     
     window.alert('Your Item Has Been Added!');

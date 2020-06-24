@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { Item } from '../models/item';
 import { Category } from '../models/category';
+import { items } from '../items';
 
 @Component({
   selector: 'app-item-list',
@@ -11,28 +12,29 @@ import { Category } from '../models/category';
 })
 export class ItemListComponent implements OnInit {
 
-  @Input() item : Item;
-  items: Item[];
-  name: String;
+  // @Input() item : Item;
+  // items: Item[];
+  // name: String;
+  items = items;
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.name = params.get("categoryName")
-    })
-     console.log(this.name);
+    // this.route.paramMap.subscribe(params => {
+    //   this.name = params.get("categoryName")
+    // })
+    //  console.log(this.name);
 
-     this.getCategoryItems(this.name);
+    //  this.getCategoryItems(this.name);
   }
 
-  getCategoryItems(categoryName){
-    this.dataService.getItems(categoryName).subscribe((data: Item[]) => {
-      this.items = data;
-      console.log(this.items);
+  // getCategoryItems(categoryName){
+  //   this.dataService.getItems(categoryName).subscribe((data: Item[]) => {
+  //     this.items = data;
+  //     console.log(this.items);
 
-    })
-  }
+  //   })
+  // }
 
   // this.route.queryParams.subscribe(params => {
   //   this.categoryName = params['param1'];

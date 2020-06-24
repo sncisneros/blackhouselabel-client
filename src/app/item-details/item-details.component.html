@@ -1,7 +1,7 @@
 
+      <div *ngIf="items">
 <mat-card class="item-details">
     <mat-card-header>
-      
       <mat-card-title>{{item.productName}}</mat-card-title>
       <mat-card-subtitle>{{item.productPrice | currency}}</mat-card-subtitle>
     </mat-card-header>
@@ -22,7 +22,9 @@
           </div>
         </div>
     </mat-card-content>
+  
     <mat-card-actions>
         <button type="button" class="btn btn-light" (click)="addToCart(item.productSKU, category)">Add To Cart</button>
     </mat-card-actions>
   </mat-card>
+  </div>
