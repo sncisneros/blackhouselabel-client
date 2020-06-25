@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { Category } from '../models/category';
 import { Item } from "../models/item";
+import { categories } from '../categories';
 
 @Component({
   selector: 'app-category-list',
@@ -11,23 +12,24 @@ import { Item } from "../models/item";
 })
 export class CategoryListComponent implements OnInit {
   
-  @Input() category: Category;
-  items: Item[];
-  categories: Category[];
+  // @Input() category: Category;
+  // items: Item[];
+  // categories: Category[];
+  categories = categories;
 
 
   constructor(private dataService: DataService, private router: Router) { }
   
 
   ngOnInit() {
-    this.getAllCategories();
+   // this.getAllCategories();
   }
 
-  getAllCategories(){
-    this.dataService.getCategories().subscribe((data: Category[]) => {
-      this.categories = data;
-      console.log(this.categories);
-    })
-  }
+  // getAllCategories(){
+  //   this.dataService.getCategories().subscribe((data: Category[]) => {
+  //     this.categories = data;
+  //     console.log(this.categories);
+  //   })
+  // }
 
 }

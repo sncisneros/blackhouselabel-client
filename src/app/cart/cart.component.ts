@@ -12,6 +12,7 @@ import { Cart } from '../models/cart';
 export class CartComponent implements OnInit {
 
   @Input() cart: Cart;
+  items: Item[];
  
 
   constructor(private dataService: DataService, private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class CartComponent implements OnInit {
       console.log(data);
     });
     }
+  
   
 
 }
