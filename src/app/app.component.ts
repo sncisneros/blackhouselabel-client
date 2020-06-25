@@ -8,14 +8,12 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent implements OnInit {
   title = 'blackhouse-label-client';
-  private cookieValue: string;
 
-  constructor(private cookieService: CookieService){}
+  constructor(){}
 
 
   public ngOnInit(): void {
-    this.cookieService.set('cookie-name', 'customer');
-    this.cookieValue = this.cookieService.get('cookie-name');
-  }
+
+  } 
   
 }

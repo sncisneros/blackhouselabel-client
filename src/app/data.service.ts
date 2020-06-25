@@ -20,7 +20,9 @@ export class DataService {
   cart: Cart;
   
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService) {
+
+   }
 
   getCategories(){
     return this.http
@@ -37,6 +39,9 @@ export class DataService {
       .get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}`);
   };
 
+//----------------------------------------------
+
+
   addItemToCart(id: string, categoryName: string){
     return this.http.get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`);
     
@@ -45,8 +50,11 @@ export class DataService {
   
   getCart(){
     return this.http
-      .get<Cart>(`${ENV.BASE_API}my-cart`);
+      .get<Cart>(`${ENV.BASE_API}getsession`,{ withCredentials: true });
   }
+
+// -----------------------------------------------
+
 
   onResults(){
     console.log('on results:' + this.searchItems)
