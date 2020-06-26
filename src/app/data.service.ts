@@ -43,14 +43,14 @@ export class DataService {
 
 
   addItemToCart(id: string, categoryName: string){
-    return this.http.get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`);
+    return this.http.get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`,{ withCredentials: true });
     
   }
 
   
   getCart(){
     return this.http
-      .get<Cart>(`${ENV.BASE_API}getsession`,{ withCredentials: true });
+      .get<Cart>(`${ENV.BASE_API}my-cart`,{ withCredentials: true });
   }
 
 // -----------------------------------------------
