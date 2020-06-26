@@ -8,7 +8,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { CookieService} from 'ngx-cookie-service';
 
 import { DataService } from './data.service';
 
@@ -73,7 +72,7 @@ import { AboutComponent } from './about/about.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [DataService, AuthService, CookieService],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
