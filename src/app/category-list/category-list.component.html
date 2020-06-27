@@ -12,7 +12,7 @@
     <mat-grid-list cols="2" rowHeight="2:1">
         <div *ngFor="let category of categories">
         <mat-grid-tile> 
-            <a [title]="category.categoryName " [routerLink]="['/category', category.categoryName]">
+            <a [title]="category.categoryName" [routerLink]="['/category', category.categoryName]">
             {{category.categoryName}}
             </a>
             

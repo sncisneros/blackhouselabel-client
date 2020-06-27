@@ -1,9 +1,17 @@
-<p>cart works!</p>
+<div>
+    <H3>Your Cart </H3>
+    <div>Total Items: {{cart?.itemQty}}</div>
+    <div > Total Price: {{cart?.totalPrice}}</div>
+    <button>CheckOut</button>
+</div>
+<hr>
+<div *ngFor="let product of items" class='checkout-items'>
 
+<p><strong>{{product.item.productName}}</strong></p>
+<p>Quantity: {{product.quantity}}</p>
 
-<div *ngFor="let cart of cart">
+<p>Sku: {{product.item.productSKU}}</p>
+<p>Price: {{product.item.productPrice}}</p>
 
-{{cart.items}}
-{{cart.itemQty}}
-{{cart.totalPrice}}
+<hr>
 </div>

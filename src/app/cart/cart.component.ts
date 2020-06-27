@@ -14,20 +14,33 @@ export class CartComponent implements OnInit {
   @Input() cart: Cart;
   items: Item[];
  
-
   constructor(private dataService: DataService, private route: ActivatedRoute,
      private router: Router) { }
 
   ngOnInit(): void {
     this.getCart();
+    this.items = [];
   }
 
-  getCart(){
+  getCart() {
     this.dataService.getCart().subscribe((data: Cart) => {
-      console.log(data);
+      this.cart = data;
+      let formattedItems = [];
+       let keys = Object.keys(this.cart.items);
+       keys.forEach(key => {
+         this.items.push( this.cart.items[key] );
+       });
+      // this.cart.items.forEach( item => {
+        console.log(this.items)
+      // });
+
     });
-    }
+  }
   
-  
+  checkout() {
+    // alert
+    // let confirmation = window.confirm('confirm');
+
+  }
 
 }
