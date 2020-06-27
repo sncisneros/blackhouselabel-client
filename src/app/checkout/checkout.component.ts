@@ -19,18 +19,18 @@ checkoutForm;
 
   constructor(private dataService: DataService, private formBuilder: FormBuilder) { 
     this.checkoutForm = this.formBuilder.group({
-      firstName: '',
-      lastName: '',
-      address: '',
-      city: '',
-      state: '',
-      zip: '',
-      email: ''
+      firstName: 'donkey',
+      lastName: 'dunksalot',
+      address: '369',
+      city: 'damshefine',
+      state: 'CA',
+      zip: '19333',
+      email: 'liljon@getlow.org'
     })
   }
 
   ngOnInit(): void {
-    //this.getCart();
+    this.getCart();
   }
 
   getCart(){
@@ -49,7 +49,8 @@ checkoutForm;
          this.order = data;
         });
       
-      //this.items = this.cartService.clearCart();
+      // handled server side
+      // this.items = this.cartService.clearCart();
       this.checkoutForm.reset();
   
       console.warn('Your order has been submitted', newOrder);

@@ -53,6 +53,7 @@ export class ItemDetailsComponent implements OnInit {
   addToCart(id, categoryName){
     console.log(this.cart);
     this.dataService.addItemToCart(id, categoryName).subscribe((item: Item)=>{
+      // I dont think you need this because cart is handling the ite list -Bnasty
       this.cart.items.push(item);
       console.log('item to add: ' + item);     
       console.log('cart array:' + this.cart.items);
