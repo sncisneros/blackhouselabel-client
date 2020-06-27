@@ -37,9 +37,12 @@ export class CartComponent implements OnInit {
     });
   }
   
-  checkout() {
+  checkOut() {
     // alert
-    // let confirmation = window.confirm('confirm');
+    let confirmation = window.confirm('Confirm Cart');
+    
+    if(confirmation)
+      this.router.navigate(['/checkout']);
 
   }
 

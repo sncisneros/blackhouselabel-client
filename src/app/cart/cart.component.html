@@ -2,7 +2,7 @@
     <H3>Your Cart </H3>
     <div>Total Items: {{cart?.itemQty}}</div>
     <div > Total Price: {{cart?.totalPrice}}</div>
-    <button>CheckOut</button>
+    <button (click)='checkOut()' >CheckOut</button>
 </div>
 <hr>
 <div *ngFor="let product of items" class='checkout-items'>
