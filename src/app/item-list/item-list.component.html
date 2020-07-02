@@ -1,17 +1,24 @@
+<div class="bg">
+  
+  <div class="container">
+    <br><br>
+<h2 >{{this.name}}</h2>
+<br>
 
-    <div class="list-group">
-        <div *ngFor="let item of items">
-        <div class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">
-                <a [title]="item.productName + ' details'" [routerLink]="[item.productSKU]" queryParamsHandling = "preserve">
-                    {{item.productName}}
-                    </a>
-            </h5>
-            <small>{{item.productPrice}}</small>
-          </div>
-          <p class="mb-1">{{item.description}}</p>
-        </div>
-    </div>
-
-    </div>
+    <div *ngFor="let item of items">
+    <ul class="list-group list-group-horizontal">
+      <span class="border border-dark rounded">
+      <li class="list-group-item"><img src = {{item.imagePath[0]}} alt="item" style="width: 240px;height: 300px"></li>
+      <li class="list-group-item">
+        <a [title]="item.productName + ' details'" [routerLink]="[item.productSKU]" queryParamsHandling = "preserve">
+          {{item.productName}}
+          </a></li>
+      <li class="list-group-item">
+        ${{item.productPrice}}
+      </li>
+      </span>
+    </ul>
+  
+  </div>
+  </div>
+  </div>

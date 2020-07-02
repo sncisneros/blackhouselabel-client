@@ -1,11 +1,11 @@
-.nav{
-    font-size: medium;
+.navbar a{
+    font-size: large;
+    font-family: "Raleway", sans-serif;
+    
 }
 
-a{
-    color:black;
-}
 
 a :hover{
-    color: darkolivegreen;
+    color: black;
 }
+

@@ -1,9 +1,26 @@
-<p>cart works!</p>
+<div class="bg">
+  <br>
+  <div class="container">
 
 
-<div *ngFor="let cart of cart">
+<mat-card class="cart" style="background-color: transparent;">
+  <mat-card-header>
+    <mat-card-title ><h2>My Cart Summary</h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
 
-{{cart.items}}
-{{cart.itemQty}}
-{{cart.totalPrice}}
+  <div class="snipcart-summary">
+  <h3>Number of items: <span class="snipcart-total-items"></span>
+  <br>
+  Subtotal: <span class="snipcart-total-price"></span>
+ </h3>
+</div>
+</mat-card-content>
+<mat-card-actions>
+<button class="snipcart-checkout btn btn-outline-success">Cart Details + Checkout</button>
+</mat-card-actions>
+</mat-card>
+
+
+</div>
 </div>

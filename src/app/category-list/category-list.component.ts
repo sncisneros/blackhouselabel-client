@@ -12,24 +12,24 @@ import { categories } from '../categories';
 })
 export class CategoryListComponent implements OnInit {
   
-  // @Input() category: Category;
-  // items: Item[];
-  // categories: Category[];
-  categories = categories;
+  @Input() category: Category;
+  items: Item[];
+  categories: Category[];
+  //categories = categories;
 
 
   constructor(private dataService: DataService, private router: Router) { }
   
 
   ngOnInit() {
-   // this.getAllCategories();
+    this.getAllCategories();
   }
 
-  // getAllCategories(){
-  //   this.dataService.getCategories().subscribe((data: Category[]) => {
-  //     this.categories = data;
-  //     console.log(this.categories);
-  //   })
-  // }
+  getAllCategories(){
+    this.dataService.getCategories().subscribe((data: Category[]) => {
+      this.categories = data;
+      console.log(this.categories);
+    })
+  }
 
 }

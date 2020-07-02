@@ -13,46 +13,49 @@ import { categories } from '../categories';
 })
 export class ItemDetailsComponent implements OnInit {
 
-  // cart: Cart;
-  // cartItems: Item[] = [];
   @Input() item: Item;
 
    category;
    itemId;
 
   cart: Cart;
-  categories;
-  items;
-  
+  mainImage
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) { }
-
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router) {}
+   
   ngOnInit() {
-    // this.route.paramMap.subscribe(params => {
-    //   this.category = params.get("categoryName");
-    //   this.itemId = params.get("productSKU");
-    // })
-    // console.log(this.category);
-    //  console.log(this.itemId);
+    this.route.paramMap.subscribe(params => {
+      this.category = params.get("categoryName");
+      this.itemId = params.get("productSKU");
+    })
+    console.log(this.category);
+     console.log(this.itemId);
 
-     //this.getItem(this.itemId, this.category);
+     this.getItem(this.itemId, this.category);
 
-     this.route.paramMap.subscribe(params =>{
-      this.items = items[+params.get('productSKU')]
+    //  this.route.paramMap.subscribe(params =>{
+    //   this.items = items[+params.get('productSKU')]
       
-     });
+    //  });
   }
+
+  changeMainImg(image:any){
+    this.mainImage = image;
+  }
+ 
 
   getItem(id, category){
     this.dataService.getItem(id,category).subscribe((data : Item) =>{
       this.item = data;
+      
+     this.mainImage = this.item.imagePath[0];
       console.log(this.item);
     })
   }
 
-  addToCart(id, categoryName){
+  addToCart(id, categoryName, size, color){
     console.log(id);
-    this.dataService.addItemToCart(id, categoryName).subscribe((item: Item)=>{
+    this.dataService.addItemToCart(id, categoryName, size, color).subscribe((item: Item)=>{
       this.cart.items.push(item);
       console.log('item to add: ' + item);     
       console.log('cart array:' + this.cart.items);
@@ -61,7 +64,6 @@ export class ItemDetailsComponent implements OnInit {
     window.alert('Your Item Has Been Added!');
   };
     
-   // localStorage.setItem('cart', JSON.stringify(this.cart));
-  
+   
 }
 

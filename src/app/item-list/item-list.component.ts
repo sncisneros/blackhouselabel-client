@@ -12,29 +12,30 @@ import { items } from '../items';
 })
 export class ItemListComponent implements OnInit {
 
-  // @Input() item : Item;
-  // items: Item[];
-  // name: String;
-  items = items;
+  @Input() item : Item;
+  items: Item[];
+  name: String;
+  category: Category;
+  
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.route.paramMap.subscribe(params => {
-    //   this.name = params.get("categoryName")
-    // })
-    //  console.log(this.name);
+    this.route.paramMap.subscribe(params => {
+      this.name = params.get("categoryName")
+    })
+     console.log(this.name);
 
-    //  this.getCategoryItems(this.name);
+     this.getCategoryItems(this.name);
   }
 
-  // getCategoryItems(categoryName){
-  //   this.dataService.getItems(categoryName).subscribe((data: Item[]) => {
-  //     this.items = data;
-  //     console.log(this.items);
+  getCategoryItems(categoryName){
+    this.dataService.getItems(categoryName).subscribe((data: Item[]) => {
+      this.items = data;
+      console.log(this.items);
 
-  //   })
-  // }
+    })
+  }
 
   // this.route.queryParams.subscribe(params => {
   //   this.categoryName = params['param1'];

@@ -1,25 +1,31 @@
-
 .center {
-    height: 50%;
     justify-content: center;
     text-align: center;
+    color: white;
+    padding-bottom: 7%;
+    padding-top: 5%;
     
   }
 
+  h3 {
+    font-family: Georgia, Times, serif;
+    font-size: 30px;
+  }
+  
   hr.hr-text {
     position: relative;
       border: none;
-      height: 2px;
+      height: 1px;
       background: darkolivegreen;
   }
   
   hr.hr-text::before {
       content: attr(data-content);
       display: inline-block;
-      background: #fff;
-      font-weight: bold;
-      font-size:20px;
-      color: black;
+      background: black;
+      font-size:22px;
+      font-family: Georgia, Times, serif;
+      color: white;
       border-radius: 30rem;
       padding: 0.2rem 2rem;
       position: absolute;
@@ -28,3 +34,24 @@
       transform: translate(-50%, -50%);
   }
   
+  p {
+    font-family: Georgia, Times, serif;
+    font-size: 17px;
+  }
+
+  h4 {
+    font-family: Georgia, Times, serif;
+  }
+  
+  mat-list-item {
+    font-family: Georgia, Times, serif;
+  }
+  
+
+  a {
+    color: darkolivegreen;
+  }
+
+  a :hover{
+    color: white;
+  }

@@ -1,0 +1,30 @@
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    color: white;
+}
+
+h3{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+.container{
+    padding-top: 5%;
+    margin: 0;
+    justify-content: center;
+    padding-bottom: 25%;
+    display: flex;
+}
+
+mat-card-content{
+    justify-content: center;
+    text-align: center;
+}
+
+mat-card{
+    max-width:50%;
+    background-color: transparent;
+    text-align: center;
+}

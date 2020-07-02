@@ -1,30 +1,43 @@
+<div class="bg">
+  <div class="container">    
 
-      <div *ngIf="items">
+   
 <mat-card class="item-details">
     <mat-card-header>
-      <mat-card-title>{{item.productName}}</mat-card-title>
+      <mat-card-title >{{item.productName}}</mat-card-title>
       <mat-card-subtitle>{{item.productPrice | currency}}</mat-card-subtitle>
     </mat-card-header>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <mat-card-content>
+       
+     <img src="{{mainImage}}">
+     <div class="thumbnails">
+       <div *ngFor="let image of item.imagePath">
+       <img src="{{image}}" style="width: 50px; height: 75px;" (click)="changeMainImg(image)"><br>
+       <!-- <img src="{{item.imagePath[1]}}" style="width: 50px; height: 75px;" (click)="changeMainImg(item.imagePath[1])"><br>
+       <img src="{{item.imagePath[2]}}" style="width: 50px; height: 75px;" (click)="changeMainImg(item.imagePath[2])"><br> -->
+     </div></div>
+     <br><br>
       <p>
         {{item.description}}
       </p>
-        <div class="dropdown">
-          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="size" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sizes:
-          </button>
-          <div class="dropdown-menu" aria-labelledby="size">
-            <button class="dropdown-item" type="button" name="small">Small</button>
-            <button class="dropdown-item" type="button" name="medium">Medium</button>
-            <button class="dropdown-item" type="button" name="large">Large</button>
-            <button class="dropdown-item" type="button" name="large">X-Large</button>
-          </div>
-        </div>
-    </mat-card-content>
+     </mat-card-content>
   
     <mat-card-actions>
-        <button type="button" class="btn btn-light" (click)="addToCart(item.productSKU, category)">Add To Cart</button>
-    </mat-card-actions>
+        <!-- <button type="button" class="btn btn-light" (click)="addToCart(item.productSKU, category, size.value, color.value)">Add To Cart</button> -->
+        <button class="snipcart-add-item"
+          [attr.data-item-id]="item.productSKU"
+          [attr.data-item-price]="item.productPrice"
+          data-item-url="/"
+          [attr.data-item-name]="item.productName"
+          data-item-custom2-name="size"
+          data-item-custom2-options="Small|Medium|Large|XLarge"
+          data-item-custom1-name="color">
+          Choose Size & Add Item!
+        </button>
+      </mat-card-actions>
   </mat-card>
-  </div>
+  
+</div>
+ </div> 
+ 

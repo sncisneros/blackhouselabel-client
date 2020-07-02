@@ -6,7 +6,6 @@ import { Item } from './models/item';
 import { Order } from './models/order';
 import { Cart } from './models/cart';
 import { Observable, of } from 'rxjs';
-import { AuthService } from './auth.service';
 import { Identifiers } from '@angular/compiler';
 
 
@@ -20,7 +19,7 @@ export class DataService {
   cart: Cart;
   
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient) {
 
    }
 
@@ -42,8 +41,10 @@ export class DataService {
 //----------------------------------------------
 
 
-  addItemToCart(id: string, categoryName: string){
-    return this.http.get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`,{ withCredentials: true });
+  addItemToCart(id: string, categoryName: string, size: string, color: string){
+  
+    return this.http
+    .post<Item>(`${ENV.BASE_API}category/${categoryName}/${id}/add`, {color:color, size: size}, { withCredentials: true });
     
   }
 
@@ -72,25 +73,9 @@ export class DataService {
       })
   }
   
-  getOpenOrders(){
-    //const headers = new HttpHeaders({'Authorization': this.authService.getToken()});
-    return this.http.get<Order[]>(`${ENV.BASE_API}admin/orders`);
-  }
 
-  getOrderById(id: string){
-    return this.http.get<Order>(`${ENV.BASE_API}admin/orders/${id}`);
-  }
-
-  getAllOrders(){
-    return this.http.get<Order[]>(`${ENV.BASE_API}admin/orders/all`)
-  }
-
-  updateOrder(id: string, status: string, trackingNum: string){
-    return this.http.post(`${ENV.BASE_API}/admin/order/${id}/status/${status}`, trackingNum)
-  }
-
-  submitOrder(order: Order){
-    return this.http.post(`${ENV.BASE_API}checkout`, order);
+  submitOrder(order: Order): Observable<Order>{
+    return this.http.post<Order>(`${ENV.BASE_API}my-cart`, order);
   }
 
 }

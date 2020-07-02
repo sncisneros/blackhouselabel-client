@@ -1,0 +1,35 @@
+.item-details{
+    text-align: center;
+}
+
+.thumbnails{
+float: right;
+border-radius: 2px;
+border-color: darkolivegreen;
+}
+
+mat-card{
+    max-width:50%;
+    background-color: transparent;
+}
+
+mat-card-content{
+    font-size: 15px;
+    color: white;
+}
+
+mat-card-subtitle{
+    color: darkolivegreen;
+}
+
+mat-card-title{
+    color: white;
+}
+
+.container{
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 10%;
+}

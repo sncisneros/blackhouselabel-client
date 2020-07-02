@@ -8,6 +8,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { DataService } from './data.service';
 
@@ -20,13 +21,8 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
 import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { InventoryComponent } from './inventory/inventory.component';
-import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
-import { OrdersListComponent } from './orders-list/orders-list.component';
-import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +33,8 @@ import { AboutComponent } from './about/about.component';
     ItemDetailsComponent,
     CartComponent,
     SearchResultsComponent,
-    CheckoutComponent,
-    InventoryComponent,
-    LoginComponent,
-    OrdersListComponent,
-    OrderDetailsComponent,
-    AboutComponent
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +47,7 @@ import { AboutComponent } from './about/about.component';
     MatGridListModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    CarouselModule,
     RouterModule.forRoot([
       { path: 'home', component: CategoryListComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -62,17 +55,11 @@ import { AboutComponent } from './about/about.component';
       { path: 'category/:categoryName/:productSKU', component: ItemDetailsComponent},
       { path: 'my-cart', component: CartComponent},
       { path: 'search', component: SearchResultsComponent},
-      { path: 'checkout', component: CheckoutComponent},
-      { path: 'login', component: LoginComponent},
-      { path: 'admin/inventory', component: InventoryComponent},
-      { path: 'admin/orders', component: OrdersListComponent},
-      //{ path: 'admin/orders/all', component: OrdersListComponent},
-      { path: 'admin/orders/:orderId', component: OrderDetailsComponent},
       { path: 'about', component: AboutComponent}
     ]),
     BrowserAnimationsModule
   ],
-  providers: [DataService, AuthService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
