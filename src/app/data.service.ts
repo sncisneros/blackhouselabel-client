@@ -23,17 +23,17 @@ export class DataService {
 
    }
 
-  getCategories(){
+  getCategories(): Observable<Category[]>{
     return this.http
       .get<Category[]>(`${ENV.BASE_API}home`);
   }
 
-  getItems( categoryName: string ){
+  getItems( categoryName: string ): Observable<Item[]>{
     return this.http
       .get<Item[]>(`${ENV.BASE_API}category/${categoryName}`);
     
   }
-  getItem( id: string, categoryName: string ){
+  getItem( id: string, categoryName: string ): Observable<Item>{
     return this.http
       .get<Item>(`${ENV.BASE_API}category/${categoryName}/${id}`);
   };
