@@ -20,7 +20,6 @@ export class CartComponent implements OnInit {
   order: Order;
   handler:any = null;
  
-
   constructor(private dataService: DataService, private route: ActivatedRoute,
      private router: Router, private formBuilder: FormBuilder) { 
 
@@ -40,7 +39,7 @@ export class CartComponent implements OnInit {
     //this.getCart();
   }
 
-  getCart(){
+  getCart() {
     this.dataService.getCart().subscribe((data: Cart) => {
       this.cart = data;
       this.items = data.items;
@@ -74,5 +73,13 @@ export class CartComponent implements OnInit {
   
 
   
+  checkOut() {
+    // alert
+    let confirmation = window.confirm('Confirm Cart');
+    
+    if(confirmation)
+      this.router.navigate(['/checkout']);
+
+  }
 
 }

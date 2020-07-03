@@ -37,8 +37,5 @@ export class ItemListComponent implements OnInit {
     })
   }
 
-  // this.route.queryParams.subscribe(params => {
-  //   this.categoryName = params['param1'];
-  // });
-  //    this.getCategoryItems(this.categoryName);
+  
 }
